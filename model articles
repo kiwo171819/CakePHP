@@ -1,0 +1,31 @@
+<?php
+App::uses('AppModel', 'Model');
+
+class Article extends AppModel {
+
+
+	public $validate = array(
+		'title' => array(
+			'notEmpty' => array(
+				'rule' => array('notEmpty'),
+			
+			),
+		),
+		'category_id' => array(
+			'numeric' => array(
+				'rule' => array('numeric'),
+		
+			),
+		),
+	);
+
+	public $belongsTo = array(
+		'Category' => array(
+			'className' => 'Category',
+			'foreignKey' => 'category_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
+}
